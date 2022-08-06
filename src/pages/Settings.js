@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 export default class Settings extends Component {
   render() {
     return (
-      <div>Settings</div>
+      <div>
+        <h1 data-testid="settings-title">
+          Configurações
+        </h1>
+      </div>
     );
   }
 }

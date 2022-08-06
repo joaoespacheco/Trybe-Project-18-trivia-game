@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import getToken from '../services/triviaAPI';
 
 export default class Login extends Component {
@@ -29,6 +30,12 @@ export default class Login extends Component {
 
     return (
       <main>
+        <Link
+          data-testid="btn-settings"
+          to="/settings"
+        >
+          Configurações
+        </Link>
         <form>
           <label htmlFor="input-player-name">
             Player name:
