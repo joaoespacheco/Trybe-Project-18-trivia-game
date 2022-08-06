@@ -37,7 +37,7 @@ export default class Login extends Component {
           Configurações
         </Link>
         <form>
-          <label htmlFor="input-player-name">
+          <label htmlFor="name">
             Player name:
             <input
               data-testid="input-player-name"
@@ -49,7 +49,7 @@ export default class Login extends Component {
               onChange={ this.handleChange }
             />
           </label>
-          <label htmlFor="input-gravatar-email">
+          <label htmlFor="email">
             Player e-mail:
             <input
               data-testid="input-gravatar-email"
