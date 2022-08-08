@@ -9,12 +9,18 @@ export default class Option extends Component {
         text,
         correct,
       },
+      handleAnswer,
+      answered,
     } = this.props;
 
     return (
       <button
         type="button"
         data-testid={ correct ? 'correct-answer' : `wrong-answer-${index}` }
+        style={ {
+          border: answered ? `3px solid ${correct ? 'rgb(6, 240, 15)' : 'red'}` : 'none',
+        } }
+        onClick={ () => handleAnswer(correct) }
       >
         {text}
       </button>
@@ -31,4 +37,6 @@ Option.propTypes = {
       PropTypes.bool,
     ]),
   }).isRequired,
+  handleAnswer: PropTypes.func.isRequired,
+  answered: PropTypes.bool.isRequired,
 };
