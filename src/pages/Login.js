@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import getToken from '../services/triviaAPI';
 import { userLogin } from '../redux/actions/index';
+import { getToken } from '../services/triviaAPI';
 
 class Login extends Component {
   state = {
@@ -78,15 +78,15 @@ class Login extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  getUserLogin: (email, name) => dispatch(userLogin(email, name)),
-});
-
 Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
   getUserLogin: PropTypes.func.isRequired,
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  getUserLogin: (email, name) => dispatch(userLogin(email, name)),
+});
 
 export default connect(null, mapDispatchToProps)(Login);
