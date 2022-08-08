@@ -12,7 +12,7 @@ const player = (state = INITIAL_STATE, action) => {
   case LOGIN:
     return {
       ...state,
-      email: action.email,
+      gravatarEmail: action.email,
       name: action.name,
     };
   default:
