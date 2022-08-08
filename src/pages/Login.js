@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import getToken from '../services/triviaAPI';
+import { userLogin } from '../redux/actions/index';
 
-export default class Login extends Component {
+class Login extends Component {
   state = {
     name: '',
     email: '',
@@ -16,9 +18,10 @@ export default class Login extends Component {
   }
 
   handleLogin = async () => {
-    const { history } = this.props;
+    const { history, getUserLogin } = this.props;
+    const { email, name } = this.state;
     await getToken();
-
+    getUserLogin(email, name);
     history.push('/game');
   }
 
@@ -75,8 +78,15 @@ export default class Login extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  getUserLogin: (email, name) => dispatch(userLogin(email, name)),
+});
+
 Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
+  getUserLogin: PropTypes.func.isRequired,
 };
+
+export default connect(null, mapDispatchToProps)(Login);
