@@ -78,6 +78,10 @@ class Login extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  getUserLogin: (email, name) => dispatch(userLogin(email, name)),
+});
+
 Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
