@@ -62,6 +62,20 @@ export default class Game extends Component {
     timer = null;
   }
 
+  handleChangePage = () => {
+    const { currentQuestion } = this.state;
+    const { history } = this.props;
+    const limitOfIndex = 4;
+    if (currentQuestion < limitOfIndex) {
+      this.setState((prevState) => ({
+        currentQuestion: prevState.currentQuestion + 1,
+        answered: false,
+      }));
+    } else {
+      history.push('/feedback');
+    }
+  }
+
   render() {
     const { score, questions, currentQuestion, answered } = this.state;
 
@@ -75,6 +89,18 @@ export default class Game extends Component {
             handleAnswer={ this.handleAnswer }
             answered={ answered }
           />
+        }
+        {
+          answered
+          && (
+            <button
+              type="button"
+              data-testid="btn-next"
+              onClick={ this.handleChangePage }
+            >
+              Next
+            </button>
+          )
         }
       </main>
     );
