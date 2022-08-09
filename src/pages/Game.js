@@ -89,6 +89,20 @@ class Game extends Component {
     this.stopTimer();
   }
 
+  handleNext = () => {
+    const { questions, currentQuestion } = this.state;
+    const { history } = this.props;
+
+    if (currentQuestion < questions.length - 1) {
+      this.setState((prevState) => ({
+        currentQuestion: prevState.currentQuestion + 1,
+        answered: false,
+      }));
+    } else {
+      history.push('/feedback');
+    }
+  }
+
   render() {
     const { questions, currentQuestion, answered } = this.state;
 
@@ -102,6 +116,18 @@ class Game extends Component {
             handleAnswer={ this.handleAnswer }
             answered={ answered }
           />
+        }
+        {
+          answered
+          && (
+            <button
+              type="button"
+              data-testid="btn-next"
+              onClick={ this.handleNext }
+            >
+              Next
+            </button>
+          )
         }
       </main>
     );
