@@ -18,10 +18,10 @@ class Login extends Component {
   }
 
   handleLogin = async () => {
-    const { history, getUserLogin } = this.props;
+    const { history, setUserLogin } = this.props;
     const { email, name } = this.state;
     await getToken();
-    getUserLogin(email, name);
+    setUserLogin(email, name);
     history.push('/game');
   }
 
@@ -82,11 +82,11 @@ Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
-  getUserLogin: PropTypes.func.isRequired,
+  setUserLogin: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getUserLogin: (email, name) => dispatch(userLogin(email, name)),
+  setUserLogin: (email, name) => dispatch(userLogin(email, name)),
 });
 
 export default connect(null, mapDispatchToProps)(Login);
