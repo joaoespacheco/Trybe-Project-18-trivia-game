@@ -4,7 +4,7 @@ import Option from './Option';
 
 export default class Question extends Component {
   render() {
-    const { question } = this.props;
+    const { question, handleAnswer, answered } = this.props;
     return (
       <section>
         <p
@@ -23,6 +23,8 @@ export default class Question extends Component {
               <Option
                 key={ option.index }
                 option={ option }
+                handleAnswer={ handleAnswer }
+                answered={ answered }
               />
             ))
           }
@@ -49,4 +51,6 @@ Question.propTypes = {
       }),
     ),
   }).isRequired,
+  handleAnswer: PropTypes.func.isRequired,
+  answered: PropTypes.bool.isRequired,
 };

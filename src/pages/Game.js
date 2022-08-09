@@ -10,6 +10,7 @@ export default class Game extends Component {
     score: 0,
     questions: [],
     currentQuestion: 0,
+    answered: false,
   }
 
   componentDidMount = async () => {
@@ -26,15 +27,27 @@ export default class Game extends Component {
     }
   }
 
+  handleAnswer = (correct) => {
+    console.log(correct);
+
+    this.setState({
+      answered: true,
+    });
+  }
+
   render() {
-    const { score, questions, currentQuestion } = this.state;
+    const { score, questions, currentQuestion, answered } = this.state;
 
     return (
       <main>
         <Header score={ score } />
         <div>Game</div>
         {
-          questions.length && <Question question={ questions[currentQuestion] } />
+          questions.length && <Question
+            question={ questions[currentQuestion] }
+            handleAnswer={ this.handleAnswer }
+            answered={ answered }
+          />
         }
       </main>
     );
