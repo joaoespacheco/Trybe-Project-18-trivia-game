@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import Question from '../components/Question';
 import { getQuestions } from '../services/triviaAPI';
 
+let timer = null;
+
 export default class Game extends Component {
   state = {
     // assertions: 0,
@@ -11,6 +13,7 @@ export default class Game extends Component {
     questions: [],
     currentQuestion: 0,
     answered: false,
+    elapsedTime: 0,
   }
 
   componentDidMount = async () => {
@@ -22,6 +25,8 @@ export default class Game extends Component {
       this.setState({
         questions,
       });
+
+      this.initTimer();
     } catch (err) {
       history.push('/');
     }
@@ -30,9 +35,31 @@ export default class Game extends Component {
   handleAnswer = (correct) => {
     console.log(correct);
 
+    this.stopTimer();
+
     this.setState({
       answered: true,
     });
+  }
+
+  initTimer = () => {
+    timer = setInterval(() => {
+      const { elapsedTime } = this.state;
+
+      if (elapsedTime === Number([!+[] + !+[] + !+[]] + [+[]])) {
+        this.handleAnswer(false);
+        return;
+      }
+
+      this.setState({
+        elapsedTime: elapsedTime + 1,
+      });
+    }, Number([+!+[]] + [+[]] + [+[]] + [+[]]));
+  }
+
+  stopTimer = () => {
+    clearInterval(timer);
+    timer = null;
   }
 
   render() {
