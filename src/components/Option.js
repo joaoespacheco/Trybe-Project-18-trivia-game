@@ -21,6 +21,7 @@ export default class Option extends Component {
           border: answered ? `3px solid ${correct ? 'rgb(6, 240, 15)' : 'red'}` : 'none',
         } }
         onClick={ () => handleAnswer(correct) }
+        disabled={ answered }
       >
         {text}
       </button>
