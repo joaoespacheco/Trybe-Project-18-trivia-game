@@ -60,7 +60,6 @@ class Game extends Component {
 
     if (correct) {
       const presentScore = POINTS + ((MAX_TIME - elapsedTime) * difficulty);
-
       sendScore(score + presentScore, assertions + 1);
     }
   }
