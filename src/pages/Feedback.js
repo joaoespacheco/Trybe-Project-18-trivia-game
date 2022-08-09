@@ -6,9 +6,11 @@ class Feedback extends Component {
   playerPerformance = () => {
     const { assertions } = this.props;
     const minAssertions = 3;
+
     if (assertions < minAssertions) {
       return 'Could be better...';
     }
+
     return 'Well Done!';
   }
 
