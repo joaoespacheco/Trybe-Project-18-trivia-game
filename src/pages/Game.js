@@ -85,20 +85,6 @@ class Game extends Component {
     timer = null;
   }
 
-  handleChangePage = () => {
-    const { currentQuestion } = this.state;
-    const { history } = this.props;
-    const limitOfIndex = 4;
-    if (currentQuestion < limitOfIndex) {
-      this.setState((prevState) => ({
-        currentQuestion: prevState.currentQuestion + 1,
-        answered: false,
-      }));
-    } else {
-      history.push('/feedback');
-    }
-  }
-
   componentWillUnmount = () => {
     this.stopTimer();
   }
