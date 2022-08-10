@@ -2,13 +2,19 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { userLogin } from '../redux/actions/index';
+import { saveScore, userLogin } from '../redux/actions/index';
 import { getToken } from '../services/triviaAPI';
 
 class Login extends Component {
   state = {
     name: '',
     email: '',
+  }
+
+  componentDidMount() {
+    const { sendScore } = this.props;
+
+    sendScore(0, 0);
   }
 
   handleChange = ({ target: { id, value } }) => {
@@ -83,10 +89,12 @@ Login.propTypes = {
     push: PropTypes.func,
   }).isRequired,
   setUserLogin: PropTypes.func.isRequired,
+  sendScore: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   setUserLogin: (email, name) => dispatch(userLogin(email, name)),
+  sendScore: (score, assertions) => dispatch(saveScore(score, assertions)),
 });
 
 export default connect(null, mapDispatchToProps)(Login);
