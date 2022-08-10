@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../App';
 import { renderWithRouterAndRedux } from './helpers/renderWithRouterAndRedux';
+import { apiQuestionResponse, apiTokenResponse } from './mocks/mockData';
 
 const inputPlayerName = 'input-player-name';
 const inputGravatarEmail = 'input-gravatar-email';
@@ -47,13 +48,17 @@ describe('Testando a página de Login', () => {
   });
 
   it('Testando a mudança de rota ao clicar no botão Play', async () => {
-    global.fetch = jest.fn().mockResolvedValue({
-      json: jest.fn().mockResolvedValue({
-        response_code: 0,
-        response_message: 'Token Generated Successfully!',
-        token: 'f00cb469ce38726ee00a7c6836761b0a4fb808181a125dcde6d50a9f3c9127b6',
-      }),
-    });
+    global.fetch = (url) => (
+      Promise.resolve({
+        json: () => {
+          if(url.includes('api_token.php')) {
+            return Promise.resolve(apiTokenResponse)
+          } else {
+            return Promise.resolve(apiQuestionResponse)
+          }
+        },
+      })
+    );
 
     const { history } = renderWithRouterAndRedux(<App />);
 
