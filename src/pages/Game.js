@@ -138,8 +138,8 @@ Game.propTypes = {
     push: PropTypes.func,
   }).isRequired,
   sendScore: PropTypes.func.isRequired,
-  score: PropTypes.string.isRequired,
-  assertions: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  assertions: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
