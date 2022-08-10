@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import md5 from 'crypto-js/md5';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
@@ -88,6 +89,18 @@ class Game extends Component {
     this.stopTimer();
   }
 
+  saveRankingInLocalStorage = () => {
+    const { name, score, gravatarEmail } = this.props;
+
+    if (name) {
+      const picture = `https://www.gravatar.com/avatar/${md5(gravatarEmail).toString()}`;
+      const rankingObj = { name, score, picture };
+      const savedRanking = JSON.parse(localStorage.getItem('ranking') || '[]');
+
+      localStorage.setItem('ranking', JSON.stringify([...savedRanking, rankingObj]));
+    }
+  }
+
   handleNext = () => {
     const { questions, currentQuestion } = this.state;
     const { history } = this.props;
@@ -98,6 +111,7 @@ class Game extends Component {
         answered: false,
       }));
     } else {
+      this.saveRankingInLocalStorage();
       history.push('/feedback');
     }
   }
@@ -140,11 +154,15 @@ Game.propTypes = {
   sendScore: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
   assertions: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  gravatarEmail: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  score: state.player.score,
   assertions: state.player.assertions,
+  score: state.player.score,
+  name: state.player.name,
+  gravatarEmail: state.player.gravatarEmail,
 });
 
 const mapDispatchToProps = (dispatch) => ({
