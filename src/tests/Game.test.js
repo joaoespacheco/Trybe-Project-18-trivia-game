@@ -164,7 +164,7 @@ describe('Testando a página Game', () => {
       }
     }
 
-    localStorage.setItem('token', 'peterreidelas')
+    localStorage.setItem('token', '6C65616e64726f6e6573')
 
     renderWithRouterAndRedux(<App />, initialState, '/game');
 
