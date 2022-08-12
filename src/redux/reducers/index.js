@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import player from './player';
-import session from './session';
+import settings from './settings';
 
 const rootReducer = combineReducers({
   player,
-  session,
+  settings,
 });
 
 export default rootReducer;
