@@ -1,0 +1,136 @@
+.main {
+  align-items: center;
+  background-color: #250073;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.main div {
+  align-items: center;
+  background-color: #0b0617;
+  color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: auto;
+  justify-content: center;
+  padding: 2.75rem 2rem;
+  box-shadow: 0px 0px 60px 1px #c4fe60;
+}
+
+.main a {
+  color: inherit;
+}
+
+.main > div > a {
+  position: fixed;
+  padding: 0.75rem;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 1.5rem;
+  transition: all 0.15s;
+}
+
+.main > div > a:hover {
+  transform: rotate(45deg);
+  filter: brightness(0.8);
+}
+
+.main div p svg {
+  font-size: 3rem;
+}
+
+.main form {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  min-width: 25rem;
+  gap: 0.75rem;
+}
+
+.main form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.main form input,
+.main form select {
+  border: none;
+  border-radius: 0;
+  background-color: rgba(23, 23, 23, 0.8);
+  color: #f5f5f5;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+}
+
+.main form input::placeholder {
+  color: #404040;
+}
+
+.main form button {
+  border: none;
+  border-radius: 0;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+  background-color: #525252;
+  color: #171717;
+}
+
+.main form button:not(:disabled) {
+  background-color: #c5fe60;
+  cursor: pointer;
+}
+
+.select {
+  position: relative;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(23, 23, 23, 0.8) !important;
+  color: #f5f5f5 !important;
+  padding: 0.25rem 0.5rem !important;
+  text-align: start;
+}
+
+.button > span {
+  font-size: 0.75rem;
+}
+
+.options {
+  background-color: #171717;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.75rem;
+  position: absolute;
+  max-height: 15rem;
+  overflow: auto;
+  padding: 0.5rem 0;
+  width: 100%;
+  z-index: 50000;
+}
+
+.option {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.15rem 0.75rem;
+  width: 100%;
+}
+
+.active,
+.option:hover {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.15rem 0.75rem;
+  width: 100%;
+  background-color: #c4fe60;
+  color: #0b0617;
+}

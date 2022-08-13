@@ -163,7 +163,6 @@ class Game extends Component {
     return (
       <main>
         <Header />
-        <div>Game</div>
         <p>{ MAX_TIME - elapsedTime }</p>
         <p>{`${currentQuestion + 1} / ${questions.length}`}</p>
         {

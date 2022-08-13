@@ -1,7 +1,7 @@
 import { decodeHTML5 } from 'entities';
 
 export const getToken = async () => {
-  const res = await fetch('https://opentdb.com/api_token.php?command=request');
+  const res = await fetch('https://tryvia.ptr.red/api_token.php?command=request');
   const json = await res.json();
 
   if (json.response_code !== 0) {
@@ -14,7 +14,7 @@ export const getToken = async () => {
 export const getQuestions = async (settings) => {
   const token = localStorage.getItem('token');
 
-  const res = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}&token=${token}`);
+  const res = await fetch(`https://tryvia.ptr.red/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}&token=${token}`);
   const json = await res.json();
 
   if (!token || json.response_code !== 0) {
@@ -56,8 +56,14 @@ export const getQuestions = async (settings) => {
 };
 
 export const getCategories = async () => {
-  const res = await fetch('https://opentdb.com/api_category.php');
+  const res = await fetch('https://tryvia.ptr.red/api_category.php');
   const json = await res.json();
 
-  return json.trivia_categories;
+  return [
+    {
+      id: '0',
+      name: 'Qualquer dificuldade',
+    },
+    ...json.trivia_categories,
+  ];
 };

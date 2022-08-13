@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { FaCog } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo';
 import { saveScore, userLogin } from '../redux/actions/index';
 import { getToken } from '../services/triviaAPI';
+
+import styles from '../styles/Login.module.css';
 
 class Login extends Component {
   state = {
@@ -38,47 +42,54 @@ class Login extends Component {
     } = this.state;
 
     return (
-      <main>
-        <Link
-          data-testid="btn-settings"
-          to="/settings"
-        >
-          Configurações
-        </Link>
-        <form>
-          <label htmlFor="name">
-            Player name:
-            <input
-              data-testid="input-player-name"
-              autoComplete="off"
-              id="name"
-              type="text"
-              placeholder="Digite seu nome"
-              value={ name }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor="email">
-            Player e-mail:
-            <input
-              data-testid="input-gravatar-email"
-              autoComplete="off"
-              id="email"
-              type="email"
-              placeholder="Digite seu e-mail"
-              value={ email }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <button
-            type="button"
-            data-testid="btn-play"
-            disabled={ !email || !name }
-            onClick={ this.handleLogin }
+      <main className={ styles.main }>
+        <div>
+          <p className="logo">
+            <Logo className="h-50" />
+          </p>
+          <Link
+            data-testid="btn-settings"
+            title="Settings"
+            to="/settings"
           >
-            Play
-          </button>
-        </form>
+            <span className="sr-only">Configurações</span>
+            <FaCog />
+          </Link>
+          <form>
+            <label htmlFor="name">
+              Nickname
+              <input
+                data-testid="input-player-name"
+                autoComplete="username"
+                id="name"
+                type="text"
+                placeholder="Chuck Norris"
+                value={ name }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <label htmlFor="email">
+              E-mail
+              <input
+                data-testid="input-gravatar-email"
+                autoComplete="email"
+                id="email"
+                type="email"
+                placeholder="chuck@norris.dev"
+                value={ email }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <button
+              type="button"
+              data-testid="btn-play"
+              disabled={ !email || !name }
+              onClick={ this.handleLogin }
+            >
+              Play
+            </button>
+          </form>
+        </div>
       </main>
     );
   }

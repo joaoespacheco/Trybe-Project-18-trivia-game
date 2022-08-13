@@ -1,12 +1,13 @@
 // import Blobity from 'blobity';
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
 import Feedback from './pages/Feedback';
 import Game from './pages/Game';
 import Login from './pages/Login';
 import Ranking from './pages/Ranking';
 import Settings from './pages/Settings';
+
+import './index.css';
 
 export default function App() {
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div style={ { display: 'contents' } }>
       {/* <header className="App-header">
         <img src={ logo } className="App-logo" alt="logo" />
         <p>SUA VEZ</p>

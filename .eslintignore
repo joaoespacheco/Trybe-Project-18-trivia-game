@@ -1,5 +1,6 @@
 src/App.test.js
 src/serviceWorker.js 
+src/components/Logo.js
 cypress/*
 src/tests/*
 coverage/*
