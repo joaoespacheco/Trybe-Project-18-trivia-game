@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+}
+
+.header :first-child {
+  font-size: 2rem;
+  margin-right: auto;
+}
+.header div {
+  display: contents;
+}
+
+.header img {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  border: 2px solid #c4fe60;
+}

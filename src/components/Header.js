@@ -4,29 +4,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Logo from './Logo';
 
+import styles from '../styles/Header.module.css';
+
 class Header extends Component {
   render() {
     const { email, name, score } = this.props;
     return (
-      <header>
+      <header className={ styles.header }>
         <Logo />
-        <p
-          className="sr-only"
-          data-testid="header-player-name"
-        >
-          { name }
-        </p>
-        <p
-          data-testid="header-score"
-        >
-          { `Score: ${score}` }
-        </p>
-        <img
-          src={ `https://www.gravatar.com/avatar/${md5(email).toString()}` }
-          alt="foto de perfil"
-          data-testid="header-profile-picture"
-          height="300px"
-        />
+        <div>
+          <p
+            className="sr-only"
+            data-testid="header-player-name"
+          >
+            { name }
+          </p>
+          <p
+            data-testid="header-score"
+          >
+            { `Score: ${score}` }
+          </p>
+          <img
+            src={ `https://www.gravatar.com/avatar/${md5(email).toString()}` }
+            alt="foto de perfil"
+            data-testid="header-profile-picture"
+            height="300px"
+          />
+        </div>
       </header>
     );
   }

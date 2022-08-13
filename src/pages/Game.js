@@ -7,6 +7,8 @@ import Question from '../components/Question';
 import { saveScore } from '../redux/actions';
 import { getQuestions } from '../services/triviaAPI';
 
+import styles from '../styles/Game.module.css';
+
 let timer = null;
 
 const MAX_TIME = 30;
@@ -161,19 +163,21 @@ class Game extends Component {
     const { questions, currentQuestion, answered, elapsedTime } = this.state;
 
     return (
-      <main>
+      <>
         <Header />
-        <p>{ MAX_TIME - elapsedTime }</p>
-        <p>{`${currentQuestion + 1} / ${questions.length}`}</p>
-        {
-          questions.length && <Question
-            question={ questions[currentQuestion] }
-            handleAnswer={ this.handleAnswer }
-            answered={ answered }
-          />
-        }
-        {
-          answered
+        <main className={ styles.main }>
+
+          <p>{ MAX_TIME - elapsedTime }</p>
+          <p>{`${currentQuestion + 1} / ${questions.length}`}</p>
+          {
+            questions.length && <Question
+              question={ questions[currentQuestion] }
+              handleAnswer={ this.handleAnswer }
+              answered={ answered }
+            />
+          }
+          {
+            answered
           && (
             <button
               type="button"
@@ -183,8 +187,9 @@ class Game extends Component {
               Next
             </button>
           )
-        }
-      </main>
+          }
+        </main>
+      </>
     );
   }
 }

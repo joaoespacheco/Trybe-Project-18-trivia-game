@@ -20,6 +20,7 @@ export default class Option extends Component {
         style={ {
           border: answered ? `3px solid ${correct ? 'rgb(6, 240, 15)' : 'red'}` : 'none',
         } }
+        className={ `option ${answered && 'correctOption'}` }
         onClick={ () => handleAnswer(correct) }
         disabled={ answered }
       >
