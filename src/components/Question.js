@@ -1,27 +1,33 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Option from './Option';
+import styles from '../styles/Question.module.css';
 
 export default class Question extends Component {
   render() {
     const { question, handleAnswer, answered } = this.props;
     return (
-      <section>
-        <p
-          data-testid="question-category"
-        >
-          {question.category}
-        </p>
+      <section
+        className={ styles.questionContainer }
+      >
         <h2
           data-testid="question-text"
         >
           {question.question}
         </h2>
+        <p
+          data-testid="question-category"
+        >
+          {question.category}
+        </p>
         <p>
           Difficulty&nbsp;
           <span>{question.difficulty}</span>
         </p>
-        <div data-testid="answer-options">
+        <div
+          data-testid="answer-options"
+          className={ styles.options }
+        >
           {
             question.options.map((option) => (
               <Option

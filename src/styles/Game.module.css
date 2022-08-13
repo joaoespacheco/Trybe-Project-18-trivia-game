@@ -1,0 +1,59 @@
+.wrapper {
+  align-items: center;
+  background-color: #250073;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.main {
+  background-color: #0b0617;
+  color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+  height: auto;
+  justify-content: center;
+  padding: 1rem 1rem;
+  box-shadow: 0px 0px 60px 1px #c4fe60;
+  position: relative;
+  max-width: 30rem;
+  width: 100%;
+  padding: 2rem;
+}
+
+.timer {
+  font-size: 2.5rem;
+  background-color: #0b0617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 2px solid #c4fe60;
+  border-radius: 50%;
+  position: absolute;
+  bottom:-2.25rem;
+  right: -2.25rem;
+}
+
+.progress {
+  font-size: 2rem;
+  background-color: #0b0617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.5rem;
+  width: 4.5rem;
+  border: 2px solid #c4fe60;
+  border-radius: 50%;
+  position: absolute;
+  bottom:-2.25rem;
+  left: -2.25rem;
+}

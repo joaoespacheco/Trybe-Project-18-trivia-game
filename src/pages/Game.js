@@ -60,8 +60,8 @@ class Game extends Component {
     });
 
     this.theme.volume = 0.05;
-    this.maravilhoso.volume = 0.25;
-    this.errou.volume = 0.10;
+    this.maravilhoso.volume = 0.40;
+    this.errou.volume = 0.25;
     this.theme.play();
   }
 
@@ -163,12 +163,11 @@ class Game extends Component {
     const { questions, currentQuestion, answered, elapsedTime } = this.state;
 
     return (
-      <>
+      <div className={ styles.wrapper }>
         <Header />
         <main className={ styles.main }>
-
-          <p>{ MAX_TIME - elapsedTime }</p>
-          <p>{`${currentQuestion + 1} / ${questions.length}`}</p>
+          <p className={ styles.timer }>{ MAX_TIME - elapsedTime }</p>
+          <p className={ styles.progress }>{`${currentQuestion + 1}/${questions.length}`}</p>
           {
             questions.length && <Question
               question={ questions[currentQuestion] }
@@ -189,7 +188,8 @@ class Game extends Component {
           )
           }
         </main>
-      </>
+        <div className={ styles.pie }></div>
+      </div>
     );
   }
 }

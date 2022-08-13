@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { FaTrophy } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
+import md5 from 'crypto-js/md5';
+import Logo from '../components/Logo';
+import styles from '../styles/Feedback.module.css';
 
 class Feedback extends Component {
   playerPerformance = () => {
@@ -10,42 +13,74 @@ class Feedback extends Component {
     const minAssertions = 0.7;
 
     if ((assertions / amount) < minAssertions) {
-      return 'Could be better...';
+      return (
+        <div
+          data-testid="feedback-text"
+          className={ styles.meme }
+        >
+          <img src="/yoda.png" alt="meme do yoda" />
+        </div>
+      );
     }
 
-    return 'Well Done!';
+    return (
+      <div
+        data-testid="feedback-text"
+        className={ styles.meme }
+      >
+        <img src="/wellDone.png" alt="meme da foca" />
+      </div>
+    );
   }
 
   render() {
-    const { score, assertions } = this.props;
+    const { score, assertions, gravatarEmail, name } = this.props;
 
     return (
-      <div>
-        <Header />
-        <main>
-          <h2 data-testid="feedback-text">{this.playerPerformance()}</h2>
-          <h3
-            data-testid="feedback-total-score"
-          >
-            { score }
-          </h3>
-          <h3
-            data-testid="feedback-total-question"
-          >
-            { assertions }
-          </h3>
-          <Link
-            to="/"
-            data-testid="btn-play-again"
-          >
-            Play Again
-          </Link>
+      <div
+        className={ styles.feedbackContainer }
+      >
+        <header>
+          <Logo />
           <Link
             to="/ranking"
             data-testid="btn-ranking"
+            title="Ranking"
           >
-            Ranking
+            <FaTrophy />
           </Link>
+        </header>
+        <main>
+          {this.playerPerformance()}
+          <div
+            className={ styles.user }
+          >
+            <h1>Resumo do jogo</h1>
+            <img
+              src={ `https://www.gravatar.com/avatar/${md5(gravatarEmail).toString()}` }
+              alt="foto de perfil"
+              data-testid="header-profile-picture"
+              height="300px"
+            />
+            <h3>{name}</h3>
+            <p
+              data-testid="feedback-total-score"
+            >
+              { `Score: ${score}` }
+            </p>
+            <p
+              data-testid="feedback-total-question"
+            >
+              { `Número de acertos: ${assertions}` }
+            </p>
+            <Link
+              to="/"
+              data-testid="btn-play-again"
+              className={ styles.buttonPlayAgain }
+            >
+              Play Again
+            </Link>
+          </div>
         </main>
       </div>
     );

@@ -1,0 +1,84 @@
+.feedbackContainer {
+  align-items: center;
+  background-color: #250073;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.feedbackContainer header {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feedbackContainer > header > svg {
+height: 2rem;
+}
+
+.feedbackContainer > header > a {
+  font-size: 2rem;
+  color: white;
+}
+
+.feedbackContainer main {
+  align-items: center;
+  background-color: #0b0617;
+  color: #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  height: auto;
+  justify-content: center;
+  padding: 2.75rem 2rem;
+  box-shadow: 0px 0px 60px 1px #c4fe60;
+}
+
+.meme img{
+  height: 20rem;
+  margin: 0 auto;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 0.5rem;
+  row-gap: 1rem;
+  line-height: 1.5rem;
+  height: 100%;
+  padding: 0 0 0 1rem;
+}
+
+.user img {
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.user h3 {
+  font-size: 2rem;
+}
+
+.user p {
+  font-size: 1.5rem;
+}
+
+.buttonPlayAgain {
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+  background-color: #c5fe60;
+  color: black;
+  cursor: pointer;
+}

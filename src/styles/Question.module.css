@@ -1,0 +1,26 @@
+.questionContainer {
+  width: 100%;
+}
+
+.questionContainer * * {
+  width: 100%
+}
+
+.questionContainer h2 {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  width: 100%;
+
+}
+
+.options button {
+  background-color: #c4fe60;
+  color: black;
+  border: 1px solid black;
+}
