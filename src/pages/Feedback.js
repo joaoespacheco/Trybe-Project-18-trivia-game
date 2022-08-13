@@ -6,10 +6,10 @@ import Header from '../components/Header';
 
 class Feedback extends Component {
   playerPerformance = () => {
-    const { assertions } = this.props;
-    const minAssertions = 3;
+    const { assertions, amount } = this.props;
+    const minAssertions = 0.7;
 
-    if (assertions < minAssertions) {
+    if ((assertions / amount) < minAssertions) {
       return 'Could be better...';
     }
 
@@ -57,6 +57,7 @@ Feedback.propTypes = {
   score: PropTypes.number,
   name: PropTypes.string,
   gravatarEmail: PropTypes.string,
+  amount: PropTypes.string,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
@@ -64,6 +65,7 @@ const mapStateToProps = (state) => ({
   score: state.player.score,
   name: state.player.name,
   gravatarEmail: state.player.gravatarEmail,
+  amount: state.settings.amount,
 });
 
 export default connect(mapStateToProps, null)(Feedback);

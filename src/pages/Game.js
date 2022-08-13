@@ -21,6 +21,12 @@ class Game extends Component {
     elapsedTime: 0,
   }
 
+  theme = new Audio(encodeURI('/Rinse Repeat - DivKid.mp3'))
+
+  maravilhoso = new Audio('/maravilhoso.mp3');
+
+  errou = new Audio('/errou.mp3');
+
   componentDidMount = async () => {
     const {
       amount,
@@ -46,10 +52,21 @@ class Game extends Component {
     } catch (err) {
       history.push('/');
     }
+
+    this.theme.addEventListener('ended', () => {
+      this.theme.play();
+    });
+
+    this.theme.volume = 0.05;
+    this.maravilhoso.volume = 0.25;
+    this.errou.volume = 0.10;
+    this.theme.play();
   }
 
   handleAnswer = (correct) => {
     this.stopTimer();
+
+    this.playAudio(correct);
 
     this.updateScore(correct);
 
@@ -98,6 +115,9 @@ class Game extends Component {
 
   componentWillUnmount = () => {
     this.stopTimer();
+
+    this.theme.pause();
+    this.theme.removeEventListener('ended', () => this.theme.stop());
   }
 
   saveRankingInLocalStorage = () => {
@@ -119,21 +139,33 @@ class Game extends Component {
     if (currentQuestion < questions.length - 1) {
       this.setState((prevState) => ({
         currentQuestion: prevState.currentQuestion + 1,
+        elapsedTime: 0,
         answered: false,
       }));
+
+      this.initTimer();
     } else {
       this.saveRankingInLocalStorage();
       history.push('/feedback');
     }
   }
 
+  playAudio = (correct) => {
+    if (correct) {
+      return this.maravilhoso.play();
+    }
+    return this.errou.play();
+  };
+
   render() {
-    const { questions, currentQuestion, answered } = this.state;
+    const { questions, currentQuestion, answered, elapsedTime } = this.state;
 
     return (
       <main>
         <Header />
         <div>Game</div>
+        <p>{ MAX_TIME - elapsedTime }</p>
+        <p>{`${currentQuestion + 1} / ${questions.length}`}</p>
         {
           questions.length && <Question
             question={ questions[currentQuestion] }

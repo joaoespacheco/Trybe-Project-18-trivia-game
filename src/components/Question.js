@@ -17,6 +17,10 @@ export default class Question extends Component {
         >
           {question.question}
         </h2>
+        <p>
+          Difficulty&nbsp;
+          <span>{question.difficulty}</span>
+        </p>
         <div data-testid="answer-options">
           {
             question.options.map((option) => (
