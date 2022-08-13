@@ -1,3 +1,5 @@
+import { decodeHTML5 } from 'entities';
+
 export const getToken = async () => {
   const res = await fetch('https://opentdb.com/api_token.php?command=request');
   const json = await res.json();
@@ -34,17 +36,17 @@ export const getQuestions = async (settings) => {
       category,
       type,
       difficulty,
-      question,
+      question: decodeHTML5(question),
       options: [
         ...incorrectAnswers.map((answer, index) => (
           {
-            text: answer,
+            text: decodeHTML5(answer),
             correct: false,
             index,
           }
         )),
         {
-          text: correctAnswer,
+          text: decodeHTML5(correctAnswer),
           correct: true,
           index: true,
         },
