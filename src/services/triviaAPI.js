@@ -9,12 +9,10 @@ export const getToken = async () => {
   localStorage.setItem('token', json.token);
 };
 
-const DEFAULT_AMOUNT = 5;
-
-export const getQuestions = async (questionsAmount = DEFAULT_AMOUNT) => {
+export const getQuestions = async (settings) => {
   const token = localStorage.getItem('token');
 
-  const res = await fetch(`https://opentdb.com/api.php?amount=${questionsAmount}&token=${token}`);
+  const res = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}&token=${token}`);
   const json = await res.json();
 
   if (!token || json.response_code !== 0) {
@@ -53,4 +51,11 @@ export const getQuestions = async (questionsAmount = DEFAULT_AMOUNT) => {
       ].sort(() => Math.random() - (1 / 2)),
     };
   });
+};
+
+export const getCategories = async () => {
+  const res = await fetch('https://opentdb.com/api_category.php');
+  const json = await res.json();
+
+  return json.trivia_categories;
 };

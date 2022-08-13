@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import md5 from 'crypto-js/md5';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
@@ -22,10 +22,21 @@ class Game extends Component {
   }
 
   componentDidMount = async () => {
-    const { history } = this.props;
+    const {
+      amount,
+      category,
+      difficulty,
+      type,
+      history,
+    } = this.props;
 
     try {
-      const questions = await getQuestions();
+      const questions = await getQuestions({
+        amount,
+        category,
+        difficulty,
+        type,
+      });
 
       this.setState({
         questions,
@@ -156,6 +167,10 @@ Game.propTypes = {
   assertions: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   gravatarEmail: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  difficulty: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -163,6 +178,10 @@ const mapStateToProps = (state) => ({
   score: state.player.score,
   name: state.player.name,
   gravatarEmail: state.player.gravatarEmail,
+  amount: state.settings.amount,
+  category: state.settings.category,
+  difficulty: state.settings.difficulty,
+  type: state.settings.type,
 });
 
 const mapDispatchToProps = (dispatch) => ({
