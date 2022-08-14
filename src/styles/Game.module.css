@@ -27,6 +27,18 @@
   padding: 2rem;
 }
 
+.main button[data-testid="btn-next"] {
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+  background-color: #c5fe60;
+  cursor: pointer;
+}
+
 .timer {
   font-size: 2.5rem;
   background-color: #0b0617;
@@ -39,7 +51,7 @@
   border: 2px solid #c4fe60;
   border-radius: 50%;
   position: absolute;
-  bottom:-2.25rem;
+  bottom: -2.25rem;
   right: -2.25rem;
 }
 
@@ -54,6 +66,6 @@
   border: 2px solid #c4fe60;
   border-radius: 50%;
   position: absolute;
-  bottom:-2.25rem;
+  bottom: -2.25rem;
   left: -2.25rem;
 }

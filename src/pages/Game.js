@@ -21,6 +21,7 @@ class Game extends Component {
     currentQuestion: 0,
     answered: false,
     elapsedTime: 0,
+    loading: true,
   }
 
   theme = new Audio(encodeURI('/Rinse Repeat - DivKid.mp3'))
@@ -48,6 +49,7 @@ class Game extends Component {
 
       this.setState({
         questions,
+        loading: false,
       });
 
       this.initTimer();
@@ -160,36 +162,44 @@ class Game extends Component {
   };
 
   render() {
-    const { questions, currentQuestion, answered, elapsedTime } = this.state;
+    const { questions, currentQuestion, answered, elapsedTime, loading } = this.state;
 
     return (
       <div className={ styles.wrapper }>
         <Header />
         <main className={ styles.main }>
-          <p className={ styles.timer }>
-            { MAX_TIME - elapsedTime }
-          </p>
-          <p className={ styles.progress }>
-            {`${currentQuestion + 1}/${questions.length}`}
-          </p>
           {
-            questions.length && <Question
-              question={ questions[currentQuestion] }
-              handleAnswer={ this.handleAnswer }
-              answered={ answered }
-            />
-          }
-          {
-            answered
-          && (
-            <button
-              type="button"
-              data-testid="btn-next"
-              onClick={ this.handleNext }
-            >
-              Next
-            </button>
-          )
+            loading
+              ? <p>Carregando...</p>
+              : (
+                <>
+                  <p className={ styles.timer }>
+                    { MAX_TIME - elapsedTime }
+                  </p>
+                  <p className={ styles.progress }>
+                    {`${currentQuestion + 1}/${questions.length}`}
+                  </p>
+                  {
+                    questions.length && <Question
+                      question={ questions[currentQuestion] }
+                      handleAnswer={ this.handleAnswer }
+                      answered={ answered }
+                    />
+                  }
+                  {
+                    answered
+                  && (
+                    <button
+                      type="button"
+                      data-testid="btn-next"
+                      onClick={ this.handleNext }
+                    >
+                      Next
+                    </button>
+                  )
+                  }
+                </>
+              )
           }
         </main>
       </div>
