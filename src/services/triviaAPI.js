@@ -62,7 +62,7 @@ export const getCategories = async () => {
   return [
     {
       id: '0',
-      name: 'Qualquer dificuldade',
+      name: 'Qualquer categoria',
     },
     ...json.trivia_categories,
   ];
