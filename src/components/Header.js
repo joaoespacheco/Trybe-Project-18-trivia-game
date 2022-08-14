@@ -2,6 +2,7 @@ import md5 from 'crypto-js/md5';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 import Logo from './Logo';
 
 import styles from '../styles/Header.module.css';
@@ -11,7 +12,9 @@ class Header extends Component {
     const { email, name, score } = this.props;
     return (
       <header className={ styles.header }>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <div>
           <p
             className="sr-only"

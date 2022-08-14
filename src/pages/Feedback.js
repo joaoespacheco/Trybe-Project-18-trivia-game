@@ -1,9 +1,9 @@
+import md5 from 'crypto-js/md5';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { FaTrophy } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import md5 from 'crypto-js/md5';
 import Logo from '../components/Logo';
 import styles from '../styles/Feedback.module.css';
 
@@ -78,7 +78,7 @@ class Feedback extends Component {
               data-testid="btn-play-again"
               className={ styles.buttonPlayAgain }
             >
-              Play Again
+              Jogar novamente
             </Link>
           </div>
         </main>

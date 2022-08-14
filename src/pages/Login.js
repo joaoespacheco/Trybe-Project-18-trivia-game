@@ -57,7 +57,7 @@ class Login extends Component {
           </Link>
           <form>
             <label htmlFor="name">
-              Nickname
+              Apelido
               <input
                 data-testid="input-player-name"
                 autoComplete="username"
@@ -86,7 +86,7 @@ class Login extends Component {
               disabled={ !email || !name }
               onClick={ this.handleLogin }
             >
-              Play
+              Jogar
             </button>
           </form>
         </div>

@@ -1,0 +1,77 @@
+.main {
+  align-items: center;
+  background-color: #250073;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.main > div {
+  align-items: center;
+  background-color: #0b0617;
+  color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: auto;
+  max-width: 30rem;
+  width: 100%;
+  justify-content: center;
+  padding: 2.75rem 2rem;
+  box-shadow: 0px 0px 60px 1px #c4fe60;
+}
+
+.main ul {
+  width: 100%;
+  max-height: 20rem;
+  overflow: auto;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background-color: #141317;
+  padding: 0;
+}
+
+.main ul li {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+
+.main ul li:nth-of-type(2n) {
+  background-color: black;
+}
+
+.main ul li > p {
+  font-size: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main ul li div p:last-child {
+  font-size: 1rem;
+}
+
+.main ul li img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.main > div > a {
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+  background-color: #c5fe60;
+  cursor: pointer;
+}

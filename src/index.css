@@ -74,3 +74,8 @@ h6 {
   white-space: nowrap;
   border-width: 0;
 }
+
+button:not(:disabled):focus-visible,
+input:focus-visible {
+  box-shadow: 0 0 0 calc(4px + 0.005rem) #ffffff69;
+}

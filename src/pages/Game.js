@@ -166,8 +166,12 @@ class Game extends Component {
       <div className={ styles.wrapper }>
         <Header />
         <main className={ styles.main }>
-          <p className={ styles.timer }>{ MAX_TIME - elapsedTime }</p>
-          <p className={ styles.progress }>{`${currentQuestion + 1}/${questions.length}`}</p>
+          <p className={ styles.timer }>
+            { MAX_TIME - elapsedTime }
+          </p>
+          <p className={ styles.progress }>
+            {`${currentQuestion + 1}/${questions.length}`}
+          </p>
           {
             questions.length && <Question
               question={ questions[currentQuestion] }
@@ -188,7 +192,6 @@ class Game extends Component {
           )
           }
         </main>
-        <div className={ styles.pie }></div>
       </div>
     );
   }

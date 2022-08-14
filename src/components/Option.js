@@ -18,8 +18,12 @@ export default class Option extends Component {
         type="button"
         data-testid={ correct ? 'correct-answer' : `wrong-answer-${index}` }
         style={ {
-          backgroundColor: answered ? `${correct ? 'rgb(6, 240, 15)' : 'red'}` : '#c4fe60',
-          color: answered ? `${correct ? 'black' : 'white'}` : 'black',
+          backgroundColor: answered
+            ? `${correct ? 'rgb(6, 240, 15)' : 'red'}`
+            : '#c4fe60',
+          color: answered
+            ? `${correct ? 'black' : 'white'}`
+            : 'black',
         } }
         className={ `option ${answered && 'correctOption'}` }
         onClick={ () => handleAnswer(correct) }

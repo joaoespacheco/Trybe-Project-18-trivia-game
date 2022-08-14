@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import styles from '../styles/Ranking.module.css';
+
 export default class Ranking extends Component {
   state = {
     ranking: [],
@@ -15,26 +17,41 @@ export default class Ranking extends Component {
   render() {
     const { ranking } = this.state;
     return (
-      <div>
-        <h1 data-testid="ranking-title">
-          Ranking
-        </h1>
-        <Link
-          to="/"
-          data-testid="btn-go-home"
-        >
-          Página Inicial
-        </Link>
-        {
-          ranking.map(({ name, score, picture }, index) => (
-            <div key={ index }>
-              <img src={ picture } alt={ `${name}` } />
-              <p data-testid={ `player-name-${index}` }>{name}</p>
-              <p data-testid={ `player-score-${index}` }>{score}</p>
-            </div>
-          ))
-        }
-      </div>
+      <main className={ styles.main }>
+        <div>
+          <h1 data-testid="ranking-title">
+            Ranking
+          </h1>
+          <ul>
+            {
+              ranking.map(({ name, score, picture }, index) => (
+                <li key={ index }>
+                  <p>{`${index + 1}°`}</p>
+                  <img src={ picture } alt={ `${name}` } />
+                  <div>
+                    <p data-testid={ `player-name-${index}` }>
+                      Jogador:
+                      {' '}
+                      {name}
+                    </p>
+                    <p data-testid={ `player-score-${index}` }>
+                      Pontuação:
+                      {' '}
+                      {score}
+                    </p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+          <Link
+            to="/"
+            data-testid="btn-go-home"
+          >
+            Jogar novamente
+          </Link>
+        </div>
+      </main>
     );
   }
 }

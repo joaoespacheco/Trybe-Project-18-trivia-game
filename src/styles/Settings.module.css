@@ -126,8 +126,7 @@
   width: 100%;
 }
 
-.active,
-.option:hover {
+.active {
   list-style: none;
   cursor: pointer;
   padding: 0.15rem 0.75rem;
