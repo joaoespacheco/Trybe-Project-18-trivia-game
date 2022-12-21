@@ -4,7 +4,7 @@
 
 Projeto desenvolvido em <strong>grupo</strong> durante o módulo de front-end do curso de desenvolvimento web da [Trybe](https://www.betrybe.com/).
 
-Neste projeto foi desenvolvido a aplicação React de um jogo no estilo [trivia](https://www.collinsdictionary.com/dictionary/english/trivia-game#:~:text=(%CB%88tr%C9%AAv%C9%AA%C9%99%20%C9%A1e%C9%AAm%20)%20or%20trivia%20quiz,unimportant%20facts%20in%20many%20subjects). 
+Neste projeto foi desenvolvido a aplicação de um jogo no estilo [trivia](https://www.collinsdictionary.com/dictionary/english/trivia-game#:~:text=(%CB%88tr%C9%AAv%C9%AA%C9%99%20%C9%A1e%C9%AAm%20)%20or%20trivia%20quiz,unimportant%20facts%20in%20many%20subjects). 
 
 Através da aplicação os usuários poderão:
 > * Logar no jogo e, se o email tiver cadastro no site [Gravatar](https://pt.gravatar.com/), ter sua foto associada ao perfil da pessoa usuária.
