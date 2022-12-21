@@ -1,5 +1,4 @@
 # Trivia Game 🧠
-</br>
 
 ## 📄 Sobre:
 
