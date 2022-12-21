@@ -13,7 +13,7 @@ Através da aplicação os usuários poderão:
 > * Visualizar a página de ranking, se quiser, ao final de cada jogo.
 > * Configurar algumas opções para o jogo em uma tela de configuração acessível a partir do cabeçalho do app.
 
-Os dados das perguntas utilizadas no projeto originalmente eram obtidos através da [Trivia API](https://opentdb.com/api_config.php). Porém para está aplicação foi criada uma API própria com perguntas e respostas em PT-BR.
+Os dados das perguntas utilizadas no projeto originalmente eram obtidos através da [Open Trivia Database](https://opentdb.com/api_config.php). Porém para está aplicação foi criada uma API própria chamada [Tryvia API](https://github.com/peterfritz/tryvia-api) com perguntas e respostas em PT-BR.
 
 Para o gerenciamento do estado global foi utilizada a biblioteca <strong>Redux</strong>.
 
