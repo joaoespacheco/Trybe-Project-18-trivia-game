@@ -25,6 +25,9 @@ Durante a elaboração do projeto foram utilizadas metodologias de desenvolvimen
 <details>
 <summary><strong>Desempenho</strong></summary>
 Aprovado com 100% de desempenho em todos os requisitos
+
+![image](https://user-images.githubusercontent.com/99846604/211173286-ebad2b96-3783-4bab-9006-b2ef2ba88b0c.png)
+
 </details>
 
 <details>
@@ -79,8 +82,57 @@ Testes de cobertura da aplicação: </br>
 
 <details>
 <summary><strong>Visualizar projeto</strong></summary>
-:construction: Área em construção ! :construction:
+
+### Tela de login:
+
+![image](https://user-images.githubusercontent.com/99846604/211173346-eac3637c-594f-48aa-9697-ef850b17b7e4.png)
+
+
+### Tela de configurações:
+
+![image](https://user-images.githubusercontent.com/99846604/211173388-7c211c6c-91fb-40ee-a6e2-b2aafd108294.png)
+
+### Tela de jogo:
+
+![image](https://user-images.githubusercontent.com/99846604/211173420-b23e79ae-3d58-455d-8e82-8897e6be592f.png)
+
+### Tela de feedback:
+
+![image](https://user-images.githubusercontent.com/99846604/211173441-37f8c8c3-582d-47af-8804-a700bfc82b91.png)
+
+### Tela de ranking:
+
+![image](https://user-images.githubusercontent.com/99846604/211173448-6d1381f3-2b73-4221-9307-76b1f00693ce.png)
+
 </details>
+</br>
+
+## ⚙️ Execução
+
+Faça o clone deste repositório com o seguinte comando:
+
+        git clone git@github.com:joaoespacheco/Trybe-Project-16-tests-with-react-testing-library.git
+
+Para exercutar o projeto utilize o comando abaixo para instalar as dependências:
+
+        npm install
+
+Inicie a aplicação com o comando abaixo:
+
+        npm start
+        
+Para exeutar os testes deve-se utilizar o seguinte comando:
+
+        npm test
+
+Caso queira executar um teste específico, rode o comando abaixo:
+
+        npm test <nome-do-arquivo>
+
+Para executar e verificar a cobertura de testes, rode o comando abaixo:
+
+        npm run test-coverage
+
 </br>
 
 ## 🤹🏽 Habilidades Desenvolvidas:
