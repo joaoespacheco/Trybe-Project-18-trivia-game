@@ -81,7 +81,7 @@ Testes de cobertura da aplicação: </br>
 </details>
 
 <details>
-<summary><strong>Visualizar projeto</strong></summary>
+<summary><strong>Imagens do projeto</strong></summary>
 
 ### Tela de login:
 
@@ -105,6 +105,11 @@ Testes de cobertura da aplicação: </br>
 ![image](https://user-images.githubusercontent.com/99846604/211173448-6d1381f3-2b73-4221-9307-76b1f00693ce.png)
 
 </details>
+
+</br>
+
+### [👨‍💻 Clique aqui para acessar o projeto em seu navegador](https://trivia-joaoespacheco.vercel.app/) 
+
 </br>
 
 ## ⚙️ Execução
@@ -113,7 +118,7 @@ Faça o clone deste repositório com o seguinte comando:
 
         git clone git@github.com:joaoespacheco/Trybe-Project-18-trivia-game.git
 
-Para exercutar o projeto utilize o comando abaixo para instalar as dependências:
+Dentro da pasta raiz do projeto, instale as dependências com o seguinte comando:
 
         npm install
 
